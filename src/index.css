@@ -1,0 +1,45 @@
+.white {
+  color: white;
+}
+:root {
+  --toastify-color-progress-light: #3dd7c5 !important;
+}
+.flash {
+  color: #31d6c3;
+  font-size: 23px;
+}
+
+.flash:hover {
+  cursor: pointer;
+}
+.small {
+  font-size: 10px;
+}
+
+.large {
+  font-size: 4em;
+}
+
+.grey {
+  color: rgb(103, 103, 103);
+}
+.fx {
+  font-size: 20px;
+}
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(240, 23%, 16%);
+  }
+  100% {
+    background-color: hsl(240, 24%, 20%);
+  }
+}
+
+.app-notification {
+  background-color: #1a201f !important;
+  color: #17ceb9 !important;
+}
+
+.Toastify__close-button {
+  color: #17ceb9 !important;
+}
