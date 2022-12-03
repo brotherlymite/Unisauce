@@ -77,7 +77,7 @@ const AccountStatus = (props: Props) => {
             <MenuItem
               label="Open In Etherscan"
               onClick={() => {
-                window.open(`https://polygonscan.com/address/${address}`);
+                window.open(`https://mumbai.polygonscan.com/address/${address}`);
               }}
             />
             <Text

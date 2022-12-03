@@ -58,7 +58,6 @@ const useUniSauce = () => {
 
     const buyCoveredCall = useContractCall(
         async () => {
-            console.log('here')
           const contract =  new Contract(CONTRACT_ADDRESS, UniSauceABI.abi, ethProvider);
           const receipt = await executeWithCustomGasLimit(
             contract!.connect(signer),
@@ -66,18 +65,34 @@ const useUniSauce = () => {
             [],
             BigNumber.from(4000000) // gas limit hardcoded to avoid reverting
           );
-            console.log(receipt);
+            await getData();
           return receipt;
         },
         []
       );
+
+    const exerciseCoveredCall = useContractCall(
+    async () => {
+        const contract =  new Contract(CONTRACT_ADDRESS, UniSauceABI.abi, ethProvider);
+        const receipt = await executeWithCustomGasLimit(
+        contract!.connect(signer),
+        "exerciseCoveredCall",
+        [],
+        BigNumber.from(4000000) // gas limit hardcoded to avoid reverting
+        );
+        console.log(receipt);
+        return receipt;
+    },
+    []
+    );
 
     return {
         state: {
             ...state
         },
         actions: {
-            buyCoveredCall
+            buyCoveredCall,
+            exerciseCoveredCall
         }
     }
 }

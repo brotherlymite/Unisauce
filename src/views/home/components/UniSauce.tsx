@@ -1,8 +1,10 @@
 import { UniswapSmokin } from "app/assets";
 import AppButton from "components/primitives/Button";
 import {ethers} from "ethers";
+import useNotification from "hooks/useNotification";
 import useUniSauce from "hooks/useUniSauce";
 import Countdown from 'react-countdown';
+import { Toast } from "react-toastify/dist/components";
 import { Box, Text, Flex, Image } from "rebass/styled-components";
 
 type Props = {};
@@ -10,9 +12,10 @@ type Props = {};
 const NULL = '0x0000000000000000000000000000000000000000';
 
 const UniSauce = (props: Props) => {
-  const { state, actions: {buyCoveredCall} } = useUniSauce();
-  const expiry = Date.now() + (24 * 2 * 60* 60 * 1000);
-  console.log(state);
+  const { notify } = useNotification();
+  const { state, actions: {buyCoveredCall, exerciseCoveredCall} } = useUniSauce();
+  // const expiry = Date.now() + (24 * 2 * 60* 60 * 1000);
+  const expiry = 0;
 
   function handleAction() {
     if(!state.buyer) {
@@ -20,8 +23,11 @@ const UniSauce = (props: Props) => {
       return;
     }
     
-    if(Date.now() >= expiry) {
+    if(Date.now() >= expiry && state.buyer) {
+      exerciseCoveredCall();
       return;
+    } else {
+      notify({title: 'Oops', description: 'Contract not yet expired.'})
     }
   }
   return (
