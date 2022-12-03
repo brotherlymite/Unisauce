@@ -21,7 +21,7 @@ const WalletConnectButton = ({ width }: Props) => {
       height={50}
       width={width ? width : "fit-content"}
       sx={{
-        borderRadius: 2,
+        borderRadius: 3,
         border: `1.5px solid #e65f9c`,
         ":hover": {
           backgroundColor: "fadedFlash",

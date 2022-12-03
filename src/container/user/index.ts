@@ -11,6 +11,7 @@ import { Flow } from "container/flow";
 import { Step } from "types/app.types";
 import { Global } from "container/global";
 import { disconnect } from "process";
+import { SUPPORTED_WALLETS } from "constants/wallet";
 
 enum ACTIONS {
   LOGIN_REQUEST = "LOGIN_REQUEST",
@@ -74,7 +75,6 @@ function useUser() {
         });
         // console.log("---connected---");
         toggleWalletModal(false);
-        setConenctTo("");
       }
     }
   }, [account, active, chainId, deactivate, notify, setConenctTo, toggleWalletModal]);
@@ -91,7 +91,6 @@ function useUser() {
           console.log("connect success");
         })
         .catch((err) => {
-          setConnectorId("");
           dispatch({ type: ACTIONS.LOGIN_FAIL });
           console.log(err.code);
         });
@@ -111,15 +110,15 @@ function useUser() {
   }, [deactivate]);
 
   //auto login
-  // const [isTried, setIsTried] = React.useState(false);
-  // const [connectorId] = useLocalStorage(CONNECTOR_ID.name, CONNECTOR_ID.defaultValue);
-  // React.useEffect(() => {
-  //   const connector = SUPPORTED_WALLETS.find((walletInfo) => walletInfo.id === connectorId)?.connector;
-  //   if (!isTried && connector) {
-  //     login(connector, connectorId);
-  //     setIsTried(true);
-  //   }
-  // }, [connectorId, isTried, login]);
+  const [isTried, setIsTried] = React.useState(false);
+  const [connectorId] = useLocalStorage(CONNECTOR_ID.name, CONNECTOR_ID.defaultValue);
+  React.useEffect(() => {
+    const connector = SUPPORTED_WALLETS.find((walletInfo) => walletInfo.id === connectorId)?.connector;
+    if (!isTried && connector) {
+      login(connector, connectorId);
+      setIsTried(true);
+    }
+  }, [connectorId, isTried, login]);
 
   return {
     state,

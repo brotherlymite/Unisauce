@@ -3,7 +3,7 @@ export const theme = {
     dark: "#f4f4f4",
     fadedDark: "#f4f4f4",
     dullDark: "#262638",
-    flash: "#D11268",
+    flash: "#eb3d77",
     infoFlash: "#484870",
     fadedFlash: "#e2478d",
     grey: "#4a4a5c",
@@ -25,8 +25,8 @@ export const theme = {
   },
   buttons: {
     primary: {
-      color: "white",
-      bg: "#17CEB9",
+      color: "#fff",
+      bg: "#eb3d77",
     },
   },
 };

@@ -2,10 +2,10 @@
   color: white;
 }
 :root {
-  --toastify-color-progress-light: #3dd7c5 !important;
+  --toastify-color-progress-light: #d6315d !important;
 }
 .flash {
-  color: #31d6c3;
+  color: #d6315d;
   font-size: 23px;
 }
 
@@ -36,10 +36,17 @@
 }
 
 .app-notification {
-  background-color: #1a201f !important;
-  color: #17ceb9 !important;
+  background-color: #f8f8f8 !important;
+  color: #eb3d77 !important;
 }
 
 .Toastify__close-button {
-  color: #17ceb9 !important;
+  color: #eb3d77 !important;
+}
+
+.countdown {
+  color: #eb3d77 !important;
+  font-family: 'Roboto Mono';
+  font-size: 5em;
+  text-align: center;
 }

@@ -7,7 +7,7 @@ import { WalletConnectConnector } from "@web3-react/walletconnect-connector";
 
 export enum CHAIN_ID {
   Ethereum = 1,
-  Kovan = 137,
+  Kovan = 80001,
 }
 
 const { REACT_APP_MAINNET_RPC_URL, REACT_APP_KOVAN_RPC_URL } = process.env;

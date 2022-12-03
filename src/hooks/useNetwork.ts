@@ -17,7 +17,7 @@ const useNetwork = () => {
       });
     } catch (error) {
       let params = {
-        chainId: ethers.BigNumber.from(137).toHexString(),
+        chainId: ethers.BigNumber.from(8001).toHexString(),
         chainName: "Polygon Mainnet",
         nativeCurrency: {
           name: "Polygon Matic",

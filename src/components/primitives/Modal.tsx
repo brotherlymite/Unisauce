@@ -50,7 +50,7 @@ const BasicModal = ({ heading, show, height = 400, width = 400, children, close 
               left: "50%",
               transform: `translate(-50%, -50%)`,
               zIndex: 4,
-            }}
+            }} 
           >
             {heading && (
               <Box
